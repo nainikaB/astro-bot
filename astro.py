@@ -20,7 +20,7 @@ blackHole_data_paragraphs = bs.BeautifulSoup(
 # Creating the corpus of all the web page paragraphs
 
 blackHole_text = ''
-# Creating lower text corpus of cat paragraphs
+# Creating lower text corpus of black holes paragraphs
 for p in blackHole_data_paragraphs:
     blackHole_text += p.text.lower()
 print(blackHole_text)
@@ -54,7 +54,6 @@ def astro_chat(user_response):
     # cosine similarity taking the second closest index since the first is user response
     cosine_vectors = cosine_similarity(tfidf_vectors[-1], tfidf_vectors)
     idx = cosine_vectors.argsort()[0][-2]
-    # ndarray.flatten() function we can flatten a matrix to one dimension in python.
     flat = cosine_vectors.flatten()
     flat.sort()
     req_tfidf = flat[-2]
